@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Game Settings</h2>
+    <p class="pb-5">Here, you can modify basic information related to this chronicle.</p>
+    <form #gameForm="ngForm">
+        <div class="md-form">
+            <i class="fa fa-map prefix grey-text"></i>
+            <input [(ngModel)]="game.info.name" name="name" type="text" id="chronicleName" class="form-control" mdbActive>
+            <label for="chronicleName" [class.active]="game.info.name">Chronicle Title</label>
+        </div>
+
+        <div class="md-form">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <input [(ngModel)]="game.info.email" name="email" type="email" id="chronicleEmail" class="form-control" mdbActive>
+            <label for="chronicleEmail" [class.active]="game.info.email">ST Email</label>
+        </div>
+
+        <div class="md-form">
+            <i class="fa fa-globe prefix grey-text"></i>
+            <input [(ngModel)]="game.info.website" name="website" type="text" id="chronicleWebsite" class="form-control" mdbActive>
+            <label for="chronicleWebsite" [class.active]="game.info.website">Website</label>
+        </div>
+
+        <div class="md-form">
+            <i class="fa fa-newspaper-o prefix grey-text"></i>
+            <textarea [(ngModel)]="game.info.description" name="description" type="text" id="chronicleDescription" class="md-textarea"
+                style="height: 100px" mdbActive></textarea>
+            <label for="chronicleDescription" [class.active]="game.info.description">Chronicle Description</label>
+        </div>
+
+    </form>
+</div>
