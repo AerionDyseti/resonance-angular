@@ -1,3 +1,7 @@
 export class GameSettings {
-    public byTheBook: boolean;
+    public rumors: {
+        publicKnowledge: boolean,
+        sectFaction: boolean,
+        clanTribe: boolean
+    };
 }

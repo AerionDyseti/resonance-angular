@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Error404Component } from './common/error404/error404.component';
+import { Error404Component } from './routes/error404/error404.component';
 import { HomeComponent } from './routes/home/home.component';
 import { PlayersComponent } from './routes/players/players.component';
 import { GameComponent } from './routes/game/game.component';

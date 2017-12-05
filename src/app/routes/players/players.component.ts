@@ -15,4 +15,8 @@ export class PlayersComponent implements OnInit {
   public ngOnInit() {
   }
 
+  public editPlayer(player) {
+    alert(JSON.stringify(player));
+  }
+
 }

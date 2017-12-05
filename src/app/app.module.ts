@@ -1,20 +1,22 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NgUploaderModule } from 'ngx-uploader';
+import { DateTimePickerModule } from 'ng-pick-datetime';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './common/navbar/navbar.component';
-import { Error404Component } from './common/error404/error404.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { Error404Component } from './routes/error404/error404.component';
 import { PlayersComponent } from './routes/players/players.component';
 import { HomeComponent } from './routes/home/home.component';
 import { GameComponent } from './routes/game/game.component';
 
 import { GameService } from './services/game.service';
 import { GameLoadedGuard } from './guards/game-loaded.guard';
+import { ControlModule } from './controls/control.module';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,17 @@ import { GameLoadedGuard } from './guards/game-loaded.guard';
     Error404Component,
     HomeComponent,
     PlayersComponent,
-    GameComponent
+    GameComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    NgUploaderModule
+    NgUploaderModule,
+    DateTimePickerModule,
+    ControlModule
   ],
   providers: [
     GameService,

@@ -10,6 +10,10 @@ import { GameService } from '../../services/game.service';
 })
 export class GameComponent implements OnInit {
 
+  public foo: boolean;
+  public bar: boolean;
+  public baz: boolean;
+
   constructor(public game: GameService) { }
 
   public ngOnInit() {

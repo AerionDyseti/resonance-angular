@@ -6,7 +6,7 @@ export class GameInfo {
     public description: string;
     public website: string;
     public email: string;
-    public gameDates: Date[];
+    public gameDates: string[];
     public settings: GameSettings;
 
     constructor(id: string = 'NEWGAME', name: string = 'Untitled Game', description: string = '', website?: string, email?: string) {
@@ -16,6 +16,12 @@ export class GameInfo {
         this.website = website;
         this.email = email;
         this.gameDates = [];
-        this.settings = { byTheBook: true };
+        this.settings = {
+            rumors: {
+                publicKnowledge: false,
+                sectFaction: false,
+                clanTribe: false
+            }
+        };
     }
 }

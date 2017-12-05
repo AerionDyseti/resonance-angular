@@ -1,31 +1,88 @@
 <div class="container">
-    <h2>Game Settings</h2>
-    <p class="pb-5">Here, you can modify basic information related to this chronicle.</p>
-    <form #gameForm="ngForm">
-        <div class="md-form">
-            <i class="fa fa-map prefix grey-text"></i>
-            <input [(ngModel)]="game.info.name" name="name" type="text" id="chronicleName" class="form-control" mdbActive>
-            <label for="chronicleName" [class.active]="game.info.name">Chronicle Title</label>
-        </div>
+  <h2>
+    <strong>Game Settings</strong>
+  </h2>
+  <p class="pb-3">Here, you can modify basic information related to this chronicle.</p>
 
+  <div class="row p-3">
+    <div class="col-8">
+      <h4>
+        <strong>Game Details</strong>
+      </h4>
+      <hr class="mb-5" />
+      <form #gameForm="ngForm">
         <div class="md-form">
-            <i class="fa fa-envelope prefix grey-text"></i>
-            <input [(ngModel)]="game.info.email" name="email" type="email" id="chronicleEmail" class="form-control" mdbActive>
-            <label for="chronicleEmail" [class.active]="game.info.email">ST Email</label>
+          <i class="fa fa-map prefix grey-text"></i>
+          <input [(ngModel)]="game.info.name" name="name" type="text" id="chronicleName" class="form-control" mdbActive>
+          <label for="chronicleName" [class.active]="game.info.name">Chronicle Title</label>
         </div>
-
         <div class="md-form">
-            <i class="fa fa-globe prefix grey-text"></i>
-            <input [(ngModel)]="game.info.website" name="website" type="text" id="chronicleWebsite" class="form-control" mdbActive>
-            <label for="chronicleWebsite" [class.active]="game.info.website">Website</label>
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input [(ngModel)]="game.info.email" name="email" type="email" id="chronicleEmail" class="form-control" mdbActive>
+          <label for="chronicleEmail" [class.active]="game.info.email">ST Email</label>
         </div>
-
         <div class="md-form">
-            <i class="fa fa-newspaper-o prefix grey-text"></i>
-            <textarea [(ngModel)]="game.info.description" name="description" type="text" id="chronicleDescription" class="md-textarea"
-                style="height: 100px" mdbActive></textarea>
-            <label for="chronicleDescription" [class.active]="game.info.description">Chronicle Description</label>
+          <i class="fa fa-globe prefix grey-text"></i>
+          <input [(ngModel)]="game.info.website" name="website" type="text" id="chronicleWebsite" class="form-control" mdbActive>
+          <label for="chronicleWebsite" [class.active]="game.info.website">Website</label>
         </div>
-
-    </form>
+        <div class="md-form">
+          <i class="fa fa-newspaper-o prefix grey-text"></i>
+          <textarea [(ngModel)]="game.info.description" name="description" type="text" id="chronicleDescription" class="md-textarea"
+            style="height: 100px" mdbActive></textarea>
+          <label for="chronicleDescription" [class.active]="game.info.description">Chronicle Description</label>
+        </div>
+      </form>
+    </div>
+    <div class="col">
+      <h4>
+        <strong>Game Dates</strong>
+      </h4>
+      <hr/>
+      <owl-date-time [(ngModel)]="game.info.gameDates" dateFormat="MM/DD/YYYY" dataType="string" inline="true" selectionMode="multiple"
+        type="calendar">
+      </owl-date-time>
+    </div>
+  </div>
+  <div class="row p-3">
+    <div class="col">
+      <h4>
+        <strong>Rumor Settings</strong>
+      </h4>
+      <hr class="mb-2" />
+      <p>Include the following rumors in each downtime:</p>
+      <form #rumorForm="ngForm">
+        <button class="btn btn-elegant waves-light" [(ngModel)]="game.info.settings.rumors.publicKnowledge" name="publicKnowledgeRumors"
+          mdbCheckbox mdbRippleRadius>
+          Public Knowledge
+        </button>
+        <button class="btn btn-elegant waves-light" [(ngModel)]="game.info.settings.rumors.sectFaction" name="sectFactionRumors"
+          mdbCheckbox mdbRippleRadius>
+          Sect/Faction Rumors
+        </button>
+        <button class="btn btn-elegant waves-light" [(ngModel)]="game.info.settings.rumors.clanTribe" name="clanTribeRumors" mdbCheckbox
+          mdbRippleRadius>
+          Clan/Tribe Rumors
+        </button>
+      </form>
+    </div>
+    <div class="col">
+      <h4>
+        <strong>Debug Settings</strong>
+      </h4>
+      <hr class="mb-2" />
+      <p>These don't actually do anything. Don't even bother clicking them.</p>
+      <form #debugForm="ngForm">
+        <button class="btn btn-elegant waves-light" [(ngModel)]="foo" name="foo" mdbCheckbox mdbRippleRadius>
+          Foo
+        </button>
+        <button class="btn btn-elegant waves-light" [(ngModel)]="bar" name="bar" mdbCheckbox mdbRippleRadius>
+          Bar
+        </button>
+        <button class="btn btn-elegant waves-light" [(ngModel)]="baz" name="baz" mdbCheckbox mdbRippleRadius>
+          Baz
+        </button>
+      </form>
+    </div>
+  </div>
 </div>

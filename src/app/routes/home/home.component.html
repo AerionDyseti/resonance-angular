@@ -1,21 +1,26 @@
-<h3>Resonance</h3>
-<p>
+<div class="container">
+  <h2>
+    <strong>Resonance</strong>
+  </h2>
+  <p>
     This is Resonance, a comprehensive game management system written as a kind of successor to the well-loved Grapevine LARP
     utility program.
-</p>
+  </p>
 
-<input type="file" style="display: none" (change)="game.loadGameFile($event)" #file>
+  <input type="file" style="display: none" (change)="game.loadGameFile($event)" #file>
 
-<div *ngIf="!game.info">
+  <div *ngIf="!game.info">
     <p>You can use the buttons at the top to start a new game file or load an existing game file.</p>
-</div>
+  </div>
 
-<div *ngIf=" game.info ">
+  <div *ngIf=" game.info ">
     <p>The currently loaded game file is:
-        <i>
-            <b>{{ game.info.id }} - {{ game.info.name }}</b>
-        </i>
+      <i>
+        <b>{{ game.info.id }} - {{ game.info.name }}</b>
+      </i>
     </p>
     <p>You can use the buttons in the main menu to start a new game file, download the current game file, or close the game
-        completely.</p>
+      completely.
+    </p>
+  </div>
 </div>
