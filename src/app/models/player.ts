@@ -1,8 +1,8 @@
 export class Player {
-    isActive: boolean;
-    id: string;
-    name: string;
-    email: string;
-    position: string[];
-    stNotes: string;
+    public isActive: boolean;
+    public id: string;
+    public name: string;
+    public email: string;
+    public position: string[];
+    public stNotes: string;
 }

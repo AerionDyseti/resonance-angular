@@ -1,0 +1,76 @@
+<input type="file" style="display: none" (change)="game.loadGameFile($event)" accept=".res.json, application/json" #file>
+
+<div class="fixed-top">
+    <mdb-navbar SideClass="navbar navbar-expand navbar-dark elegant-color-dark" [containerInside]="false">
+        <div class="container-fluid">
+            <logo>
+                <a class="navbar-brand" href="#">
+                    Resonance
+                    <small><i>v0.1</i></small>
+                </a>
+            </logo>
+            <div *ngIf="!game.info">
+                <button class="btn btn-sm btn-blue-grey" type="button" (click)="game.newGameFile()">
+                    NEW GAME
+                </button>
+                <button class="btn btn-sm btn-blue-grey" type="button" (click)="file.click()">
+                    LOAD GAME
+                </button>
+                <button class="btn btn-sm btn-danger" type="button" (click)="game.loadMockGame()">
+                    <i>DEBUG - LOAD MOCK</i>
+                </button>
+            </div>
+            <div *ngIf=" game.info ">
+                <button class="btn btn-sm btn-blue-grey " type="button " (click)="game.newGameFile()">
+                    NEW GAME
+                </button>
+                <button class="btn btn-sm btn-blue-grey " type="button " (click)="game.saveGameFile()">
+                    SAVE GAME
+                </button>
+                <button class="btn btn-sm btn-blue-grey " type="button " (click)="game.closeGameFile()">
+                    CLOSE GAME
+                </button>
+            </div>
+            <links>
+                <span *ngIf="game.info" class="white-text nav-item ml-2">
+                    {{ game.info.name }}
+                </span>
+                <span *ngIf="!game.info" class="white-text nav-item ml-2">
+                    <i>No Game Loaded</i>
+                </span>
+            </links>
+        </div>
+    </mdb-navbar>
+
+    <mdb-navbar class="navigationMenu" SideClass="navbar navbar-expand navbar-dark stylish-color" [containerInside]="false">
+        <div class="container-fluid">
+            <form class="form-inline menu-buttons d-flex">
+                <button class="btn btn-sm btn-elegant menu-button" type="button" routerLink="/home" routerLinkActive="active" mdbRippleRadius>
+                    Home
+                </button>
+                <button class="btn btn-sm btn-elegant menu-button" type="button" routerLink="/game" routerLinkActive="active" mdbRippleRadius [disabled]="!game.info">
+                    Game
+                </button>
+                <button class="btn btn-sm btn-elegant menu-button" type="button" routerLink="/players" routerLinkActive="active"
+                    mdbRippleRadius [disabled]="!game.info">
+                    Players
+                </button>
+                <button class="btn btn-sm btn-elegant menu-button" type="button" routerLink="/characters" routerLinkActive="active"
+                    mdbRippleRadius [disabled]="!game.info">
+                    Characters
+                </button>
+                <button class="btn btn-sm btn-elegant menu-button" type="button" routerLink="/world" routerLinkActive="active" mdbRippleRadius [disabled]="!game.info">
+                    World
+                </button>
+                <button class="btn btn-sm btn-elegant menu-button" type="button" routerLink="/chronicle" routerLinkActive="active"
+                    mdbRippleRadius [disabled]="!game.info">
+                    Chronicle
+                </button>
+                <button class="btn btn-sm btn-elegant menu-button" type="button" routerLink="/reports" routerLinkActive="active"
+                    mdbRippleRadius [disabled]="!game.info">
+                    Reports
+                </button>
+            </form>
+        </div>
+    </mdb-navbar>
+</div>

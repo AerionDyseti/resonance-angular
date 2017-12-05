@@ -12,7 +12,7 @@ export class PlayersComponent implements OnInit {
 
   constructor(public game: GameService) { }
 
-  ngOnInit() {
+  public ngOnInit() {
   }
 
 }

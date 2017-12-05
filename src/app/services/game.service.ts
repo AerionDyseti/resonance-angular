@@ -1,30 +1,33 @@
-import { mockPlayerList } from '../../../mocks/player.mock';
-import { mockGameInfo } from '../../../mocks/game.mocks';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { saveAs } from 'file-saver';
+
 import { GameInfo } from '../models/game-info';
 import { Player } from '../models/player';
-import { Injectable } from '@angular/core';
-import { saveAs } from 'file-saver';
 import { GameFile } from '../models/game-file';
+
+import { mockPlayerList } from '../../../mocks/player.mock';
+import { mockGameInfo } from '../../../mocks/game.mocks';
 
 @Injectable()
 export class GameService {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
-  info: GameInfo;
-  players: Player[];
+  public info: GameInfo;
+  public players: Player[];
 
-  newGameFile(): void {
+  public newGameFile(): void {
     this.info = new GameInfo();
     this.players = [];
   }
 
-  loadMockGame(): void {
+  public loadMockGame(): void {
     this.info = mockGameInfo;
     this.players = mockPlayerList;
   }
 
-  loadGameFile(event): void {
+  public loadGameFile(event): void {
     // TODO: load from a saved file.
     const input = event.target;
     for (let index = 0; index < input.files.length; index++) {
@@ -39,20 +42,22 @@ export class GameService {
         }
         catch (e) {
           alert('There was an error loading the game file: ' + e.message);
+          this.router.navigateByUrl('/home');
         }
       };
       reader.readAsText(input.files[index]);
     }
   }
 
-  saveGameFile(): void {
+  public saveGameFile(): void {
     const gameFile: GameFile = new GameFile(this.info, this.players);
     saveAs(new Blob([JSON.stringify(gameFile)], { type: 'application/json;charset=utf-8' }), `${this.info.name}.res.json`);
   }
 
-  closeGameFile(): void {
+  public closeGameFile(): void {
     this.info = null;
     this.players = null;
+    this.router.navigateByUrl('/home');
   }
 
 
